@@ -1,16 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
-
+apply plugin: 'com.github.dcendents.android-maven'
 android {
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
-
+group="github.com/eggbrid"
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -37,21 +35,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-task makeJar(type: Copy) {
-    delete 'build/libs/barlibrary-2.2.9.jar'
-    from('build/intermediates/bundles/default/')
-    into('build/libs/')
-    include('classes.jar')
-    rename('classes.jar', 'barlibrary-2.3.0.jar')
-}
 
-makeJar.dependsOn(build)
-
-publish {
-    userOrg = 'magic-dev'
-    groupId = 'com.gyf.barlibrary'
-    artifactId = 'barlibrary'
-    publishVersion = '2.3.0'
-    desc = 'Android bar management'
-    website = 'https://github.com/gyf-dev/ImmersionBar'
-}
