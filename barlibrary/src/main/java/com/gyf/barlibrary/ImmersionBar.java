@@ -71,7 +71,7 @@ public class ImmersionBar {
         WeakReference<Activity> activityWeakReference = new WeakReference<>(activity);
         mActivity = activityWeakReference.get();
         mWindow = mActivity.getWindow();
-        mActivityName = activity.getClass().getName();
+        mActivityName = activity.getClass().getName()+activity.toString();
         mImmersionBarName = mActivityName;
         initParams();
     }
@@ -94,7 +94,7 @@ public class ImmersionBar {
         WeakReference<Fragment> fragmentWeakReference = new WeakReference<>(fragment);
         mActivity = activityWeakReference.get();
         mWindow = mActivity.getWindow();
-        mActivityName = mActivity.getClass().getName();
+        mActivityName =activity.getClass().getName()+activity.toString();
         mFragmentName = mActivityName + "_AND_" + fragmentWeakReference.get().getClass().getName();
         mImmersionBarName = mFragmentName;
         initParams();
@@ -106,7 +106,7 @@ public class ImmersionBar {
         mActivity = dialogFragmentWeakReference.get().getActivity();
         mDialog = dialogWeakReference.get();
         mWindow = mDialog.getWindow();
-        mActivityName = mActivity.getClass().getName();
+        mActivityName = mActivity.getClass().getName()+mActivity.toString();
         mImmersionBarName = mActivityName + "_AND_" + dialogFragmentWeakReference.get().getClass().getName();
         initParams();
     }
@@ -125,7 +125,7 @@ public class ImmersionBar {
         mActivity = activityWeakReference.get();
         mDialog = dialogWeakReference.get();
         mWindow = mDialog.getWindow();
-        mActivityName = mActivity.getClass().getName();
+        mActivityName = mActivity.getClass().getName()+mActivity.toString();
         mImmersionBarName = mActivityName + "_AND_" + dialogTag;
         initParams();
     }
